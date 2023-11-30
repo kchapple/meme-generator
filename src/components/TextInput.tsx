@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { ValidationFunction } from "../models/models";
+import { ChangeHandlerFunction, ValidationFunction } from "../models/meme";
+import { Label } from "./Label";
 
 interface TextInputProps {
+  testid: string;
   id: string;
   value: string | number;
   placeholder: string;
   label: string;
   validate: ValidationFunction;
-  change: (newValue: string | number) => void;
+  change: ChangeHandlerFunction;
 }
 
 const TextInput: React.FC<TextInputProps> = (props: TextInputProps) => {
@@ -42,10 +44,9 @@ const TextInput: React.FC<TextInputProps> = (props: TextInputProps) => {
 
   return (
     <>
-      <label className="text-gray-700 text-sm font-bold mb-2" htmlFor="scale">
-        {props.label}
-      </label>
+      <Label text={props.label} htmlFor={props.id} />
       <input
+        data-testid={props.testid}
         ref={inputRef}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline"
         id={props.id}

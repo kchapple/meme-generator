@@ -1,20 +1,16 @@
-import { ImageProperties } from "../models/models";
+import { MemeProperties } from "../models/meme";
 import ImagePreview from "./ImagePreview";
 
 interface MainProps {
-  image: ImageProperties;
+  meme: MemeProperties;
 }
 
 const MainContent: React.FC<MainProps> = (props: MainProps) => {
   return (
-    <main className="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-      <div className="main-content flex flex-col flex-grow p-4">
-        <div className="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4">
-          <ImagePreview
-            scale={props.image.scale}
-            rotation={props.image.rotation}
-            url={props.image.url}
-          />
+    <main className="main flex flex-col flex-grow ml-0">
+      <div className="main-content flex flex-col flex-grow p-8">
+        <div className="flex flex-col border-4 border-gray-400 border-dashed bg-white rounded mt-4">
+          <ImagePreview meme={props.meme} />
         </div>
       </div>
     </main>

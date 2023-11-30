@@ -1,4 +1,4 @@
-import { ValidationFunction } from "./models/models";
+import { ValidationFunction } from "./models/meme";
 
 export const validateScale: ValidationFunction = (value: number | string) => {
   return parseInt(value as string) >= 1 && parseInt(value as string) <= 200;
